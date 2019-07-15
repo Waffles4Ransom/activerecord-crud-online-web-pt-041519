@@ -29,7 +29,7 @@ def can_be_created_in_a_block(args = {title: "Home Alone", release_date: 1990})
   # release_date == 1990
   
   Movie.create do |m|
-   m.title = arg[:title]
+   m.title = args[:title]
    m.release_date = args[:release_date]
   end
 end
@@ -74,9 +74,8 @@ end
 
 def can_update_using_update_method
   # Update movie title to "Wat, huh?"
-  Movie.create(title: "Wat?")
-  #__
-  #__
+  m = Movie.create(title: "Wat?")
+  m.update_attribute(title: "Wat, huh?")
 end
 
 def can_update_multiple_items_at_once
